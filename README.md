@@ -47,18 +47,18 @@ Key checks and plots (see notebook):
 
 ### Train–test split
 
-```python
-from sklearn.model_selection import train_test_split
 
-X_train, X_test, y_train, y_test = train_test_split(
-    X, y,
-    test_size=0.2,
-    stratify=y,
-    random_state=42,
-)
+   from sklearn.model_selection import train_test_split
 
-	•	X_train: (5881, 561)
-	•	X_test: (1471, 561)
+   X_train, X_test, y_train, y_test = train_test_split(
+       X, y,
+       test_size=0.2,
+       stratify=y,
+       random_state=42,
+   )
+
+•	X_train: (5881, 561)
+•	X_test: (1471, 561)
 
 ### Scaling & pipelines
 
