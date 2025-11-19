@@ -104,7 +104,7 @@ Observations:
 
 ___
 
-5. Hyperparameter Tuning
+## 5. Hyperparameter Tuning
 
 Used RandomizedSearchCV with StratifiedKFold (3 folds in FAST mode, scoring = f1_macro) for:
 	•	SVM (RBF)
@@ -120,9 +120,9 @@ Highlights:
 
 ⸻
 
-6. Ensembles: Voting, Stacking, Bagging & Boosting
+## 6. Ensembles: Voting, Stacking, Bagging & Boosting
 
-6.1 Voting & Stacking
+### 6.1 Voting & Stacking
 
 Built using the tuned/baseline pipelines:
 	•	Hard Voting: Perceptron, Ridge, Logistic Regression, SVM, DecisionTree, RandomForest, KNN.
@@ -143,7 +143,7 @@ Error analysis:
 	•	Confusion matrix is almost perfectly diagonal.
 	•	Remaining errors are almost entirely SITTING vs STANDING, reflecting truly subtle differences in the underlying sensor patterns.  ￼
 
-6.2 Bagging & Boosting
+### 6.2 Bagging & Boosting
 
 Models kept in a separate registry:
 	•	BaggingClassifier with DecisionTree base learners
@@ -162,7 +162,7 @@ These tree ensembles nearly match the stacked model, but Stacking (LR meta) stil
 
 ⸻
 
-7. Saved Artifacts
+### 7. Saved Artifacts
 	•	best_har_model.joblib – the full scikit-learn pipeline for the stacked model, including preprocessing (scaling) and all base/meta learners.
 	•	feature_names.txt – ordered list of the 561 feature names used during training.
 
@@ -170,7 +170,7 @@ These are stored next to the notebook and can be committed to the repo.  ￼
 
 ⸻
 
-8. Inference Helper
+### 8. Inference Helper
 
 A small utility wraps consistency checks and prediction:
 
@@ -213,7 +213,7 @@ def predict_activities(new_data, model_path=MODEL_PATH, feature_list_path=FEATUR
 
 ⸻
 
-9. How to Run This Project
+### 9. How to Run This Project
 	1.	Clone the repo & install deps
       git clone <this-repo-url>
       cd <this-repo-folder>
@@ -234,7 +234,7 @@ def predict_activities(new_data, model_path=MODEL_PATH, feature_list_path=FEATUR
 
 ⸻
 
-10. Limitations & Future Work
+### 10. Limitations & Future Work
 	•	Remaining errors occur mainly between SITTING and STANDING; more explicit postural features or sequence models (LSTMs, HMMs) could help.  ￼
 	•	Evaluation uses a random subject mix; a stricter protocol would train on some subjects and test on completely unseen individuals.
 	•	Stacking is relatively heavy; for on-device deployment, a lighter model such as HistGradientBoosting or a single tuned SVM might be preferable.
